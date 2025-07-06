@@ -12,11 +12,14 @@ template = (
 
 # specify LLM model
 
-model = OllamaLLM(model="llama3")
+model = OllamaLLM(model="gemma3")
 
 # function to parse with ollama
 
 def parse_with_ollama(dom_chunks, parse_description):
+
+    # create prompt template
+
     prompt = ChatPromptTemplate.from_template(template)
     
     # first go to prompt then model
@@ -24,6 +27,8 @@ def parse_with_ollama(dom_chunks, parse_description):
     chain = prompt | model
 
     parsed_results = []
+
+    # take chunks from DOM and pass into prompt
 
     for i, chunk in enumerate(dom_chunks, start=1):
         response = chain.invoke(
