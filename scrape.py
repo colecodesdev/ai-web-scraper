@@ -11,11 +11,11 @@ def scrape_website(website):
 
     # specify chrome driver
 
-    chrome_driver_path = ""
+    chrome_driver_path = "./chromedriver.exe"
 
     # specify how driver should operate (headless, ignore images, etc.)
 
-    options = webdriver.ChromeOptions
+    options = webdriver.ChromeOptions()
 
     # setup driver, specify service, pass options
 

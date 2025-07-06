@@ -1,6 +1,5 @@
-# build StreamLit UI
-
 import streamlit as st
+from scrape import scrape_website
 
 # website title
 
@@ -12,5 +11,7 @@ url = st.text_input("Enter a website URL: ")
 
 # create button
 
-if st.button("Scrape Site"):
-    st.write("Scraping the wesite")
+if st.button("Scrape Website"):
+    st.write("Scraping the website...")
+    result = scrape_website(url)
+    print(result)
